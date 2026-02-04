@@ -18,3 +18,23 @@ from pyfr.backends.base.types import (
     XchgMatrix,
     XchgView,
 )
+
+
+__all__ = [
+    BaseBackend, 
+    BaseKernelProvider,
+    BaseOrderedMetaKernel,
+    BasePointwiseKernelProvider,
+    BaseUnorderedMetaKernel,
+    Kernel,
+    NotSuitableError,
+    NullKernel,
+    ConstMatrix,
+    Graph,
+    Matrix,
+    MatrixBase,
+    MatrixSlice,
+    View,
+    XchgMatrix,
+    XchgView,
+]
