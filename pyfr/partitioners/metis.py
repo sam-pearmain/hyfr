@@ -9,9 +9,9 @@ from pyfr.util import silence
 
 
 # Possible METIS exception types
-class METISError(Exception): pass
-class METISErrorInput(METISError): pass
-class METISErrorMemory(METISError): pass
+class METISError(Exception): ...
+class METISErrorInput(METISError): ...
+class METISErrorMemory(METISError): ...
 
 
 class METISWrappers(LibWrapper):
