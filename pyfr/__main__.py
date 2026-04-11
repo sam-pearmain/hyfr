@@ -6,9 +6,7 @@ from pathlib import Path
 import re
 
 import h5py
-import mpi4py.rc
 import numpy as np
-mpi4py.rc.initialize = False
 
 from pyfr._version import __version__
 from pyfr.backends import BaseBackend, get_backend

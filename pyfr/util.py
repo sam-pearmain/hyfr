@@ -22,14 +22,15 @@ class silence:
         import sys
         self.sys = sys
 
-        # Flush
-        sys.__stdout__.flush()
-        sys.__stderr__.flush()
+        if sys.__stdout__ and sys.__stderr__:
+            # Flush
+            sys.__stdout__.flush()
+            sys.__stderr__.flush()
 
-        # Save
-        self.saved_streams = [sys.__stdout__, sys.__stderr__]
-        self.fds = [s.fileno() for s in self.saved_streams]
-        self.saved_fds = [os.dup(f) for f in self.fds]
+            # Save
+            self.saved_streams = [sys.__stdout__, sys.__stderr__]
+            self.fds = [s.fileno() for s in self.saved_streams]
+            self.saved_fds = [os.dup(f) for f in self.fds]
 
         # Open the redirects
         if self.combine:
@@ -86,7 +87,7 @@ def first(v):
     return next(iter(v))
 
 
-def subclasses(cls, just_leaf=False):
+def subclasses(cls: type, just_leaf=False):
     sc = cls.__subclasses__()
     ssc = [g for s in sc for g in subclasses(s, just_leaf)]
 
